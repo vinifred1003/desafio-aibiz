@@ -22,6 +22,11 @@ export class ClientesController {
     return this.clientesService.findOne(id);
   }
 
+  @Get(':company')
+  findByCompany(@Param('company') company: string){
+    return this.clientesService.findByCompany(company);
+  }
+
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateClienteDto: UpdateClienteDto) {
     return this.clientesService.update(id, updateClienteDto);

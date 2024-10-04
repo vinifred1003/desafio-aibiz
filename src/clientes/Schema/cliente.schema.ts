@@ -3,6 +3,8 @@ import { HydratedDocument } from 'mongoose';
 import * as mongoose from 'mongoose';
 import { Empresa } from '../../empresa/Schema/empresa.schema';
 
+
+
 export type ClienteDocument = HydratedDocument<Cliente>;
 
 @Schema()
@@ -16,6 +18,7 @@ export class Cliente {
 
 
   @Prop({ unique: true })
+  
   phone: string;
 }
 
