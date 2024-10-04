@@ -10,6 +10,7 @@ export class ClientesService {
   constructor(@InjectModel(Cliente.name) private clienteModel: Model<Cliente>) { }
 
   async create(createClienteDto: CreateClienteDto): Promise<Cliente> {
+    
     const createdCliente = new this.clienteModel(createClienteDto);
     return createdCliente.save();
   }

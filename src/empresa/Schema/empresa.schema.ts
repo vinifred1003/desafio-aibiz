@@ -7,9 +7,6 @@ export type EmpresaDocument = HydratedDocument<Empresa>;
 export class Empresa {
 
   @Prop()
-  id: number;
-
-  @Prop()
   name: string;
 
   @Prop()
