@@ -9,7 +9,7 @@ export class Empresa {
   @Prop()
   name: string;
 
-  @Prop()
+  @Prop({ unique: true })
   cnpj: string;
 }
 
