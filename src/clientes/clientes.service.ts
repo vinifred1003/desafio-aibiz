@@ -18,15 +18,29 @@ export class ClientesService {
     return this.clienteModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} cliente`;
+  async findOne(id: String): Promise<Cliente> {
+
+    return this.clienteModel.findById(id).exec();
   }
 
-  update(id: number, updateClienteDto: UpdateClienteDto) {
-    return `This action updates a #${id} cliente`;
+  async update(id: string, updateClienteDto: UpdateClienteDto): Promise<Cliente | null> {
+    return this.clienteModel.findByIdAndUpdate(id, updateClienteDto, {
+      new: true,
+    }).exec();
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} cliente`;
+  async remove(id: string) {
+    const objectIdFilter = {
+      "_id": id
+    }
+    const isDeleted = await this.clienteModel.deleteOne(objectIdFilter).exec();
+    if (isDeleted.deletedCount === 1) {
+      return `O cliente de id ${id} foi deletado`;
+    }
+    else {
+      return `O cliente de id ${id} não foi deletado`;
+    }
+
+
   }
 }

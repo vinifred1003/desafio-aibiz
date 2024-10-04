@@ -8,10 +8,6 @@ export type ClienteDocument = HydratedDocument<Cliente>;
 @Schema()
 export class Cliente {
 
-
-  @Prop()
-  id: number;
-
   @Prop()
   name: string;
 
@@ -19,7 +15,7 @@ export class Cliente {
   company: Empresa[];
 
 
-  @Prop()
+  @Prop({ unique: true })
   phone: string;
 }
 
