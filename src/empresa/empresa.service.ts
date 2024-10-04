@@ -1,15 +1,21 @@
 import { Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
+import { InjectModel } from '@nestjs/mongoose'
 import { CreateEmpresaDto } from './dto/create-empresa.dto';
 import { UpdateEmpresaDto } from './dto/update-empresa.dto';
+import { Empresa } from './Schema/empresa.schema';
 
 @Injectable()
-export class EmpresaService {
-  create(createEmpresaDto: CreateEmpresaDto) {
-    return 'This action adds a new empresa';
+export class EmpresasService {
+  constructor(@InjectModel(Empresa.name) private empresaModel: Model<Empresa>) { }
+
+  async create(createEmpresaDto: CreateEmpresaDto): Promise<Empresa> {
+    const createdEmpresa = new this.empresaModel(createEmpresaDto);
+    return createdEmpresa.save();
   }
 
-  findAll() {
-    return `This action returns all empresa`;
+  async findAll(): Promise<Empresa[]> {
+    return this.empresaModel.find().exec();
   }
 
   findOne(id: number) {

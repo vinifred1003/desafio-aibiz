@@ -1,11 +1,11 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { EmpresaService } from './empresa.service';
+import { EmpresasService } from './empresa.service';
 import { CreateEmpresaDto } from './dto/create-empresa.dto';
 import { UpdateEmpresaDto } from './dto/update-empresa.dto';
 
 @Controller('empresa')
 export class EmpresaController {
-  constructor(private readonly empresaService: EmpresaService) {}
+  constructor(private readonly empresaService: EmpresasService) { }
 
   @Post()
   create(@Body() createEmpresaDto: CreateEmpresaDto) {
