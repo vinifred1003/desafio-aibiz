@@ -13,12 +13,13 @@ export class Cliente {
   @Prop()
   name: string;
 
-  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Empresa' }] })
-  company: Empresa[];
+  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Empresa' })
+  company: Empresa;
+
 
 
   @Prop({ unique: true })
-  
+
   phone: string;
 }
 
