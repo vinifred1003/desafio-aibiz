@@ -1,5 +1,5 @@
- desafio-aibiz
-<<<<<<< HEAD
+# desafio-aibiz
+
 
 Nest Logo
 
