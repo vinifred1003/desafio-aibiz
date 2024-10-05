@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Model, Types } from 'mongoose';
+import { Model, } from 'mongoose';
+import mongoose from 'mongoose';
 import { InjectModel } from '@nestjs/mongoose'
 import { CreateClienteDto } from './dto/create-cliente.dto';
 import { UpdateClienteDto } from './dto/update-cliente.dto';
@@ -25,9 +26,12 @@ export class ClientesService {
     return this.clienteModel.findById(id).exec();
   }
 
-  async findByCompany(companyId: string): Promise<Cliente[]> {
-    const clients = await this.clienteModel.find({ company: { $in: [companyId] } }).exec();
+  async findByCompany(companyId: string) {
+    const clients = await this.clienteModel.find({ company: { $in: [new mongoose.Types.ObjectId(companyId)] } }).exec();
     return clients;
+  }
+  async teste(name: string) {
+    return ` teste ${name}`
   }
 
   async update(id: string, updateClienteDto: UpdateClienteDto): Promise<Cliente | null> {

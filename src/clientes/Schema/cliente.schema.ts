@@ -13,8 +13,8 @@ export class Cliente {
   @Prop()
   name: string;
 
-  @Prop({ type: mongoose.Schema.Types.ObjectId, ref: 'Empresa' })
-  company: Empresa;
+  @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Empresa' }] })
+  company: Empresa[];
 
 
 

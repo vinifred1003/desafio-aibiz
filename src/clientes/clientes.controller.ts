@@ -22,9 +22,14 @@ export class ClientesController {
     return this.clientesService.findOne(id);
   }
 
-  @Get(':company')
-  findByCompany(@Param('company') company: string){
-    return this.clientesService.findByCompany(company);
+  @Get('/empresa/:id')
+  async findByCompany(@Param('id') companyId: string) {
+
+    return this.clientesService.findByCompany(companyId);
+  }
+  @Get(':nome')
+  teste(@Param("nome") nome: string) {
+    return this.clientesService.teste(nome);
   }
 
   @Patch(':id')
