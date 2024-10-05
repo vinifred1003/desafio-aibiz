@@ -18,3 +18,5 @@ Fazendo uma requisição do tipo GET com a rota http://localhost:3000/cliente/id
 Fazendo uma requisição do tipo DELETE com a rota http://localhost:3000/cliente/id: com o id do cliente de parâmetro, excluirá o cliente correspondente ao id informado do Banco de Dados.
 
 Fazendo uma requisição do tipo PATCH com a rota http://localhost:3000/cliente/id:, com o id do cliente de parâmetro e no body algum dos seus atributos, atualizará os atributos escolhidos do cliente no Banco de Dados.
+
+Fazendo uma requisição do tipo GET com a rota http://localhost:3000/cliente/empresa/id:, com o id da empresa associado ao cliente de parâmetro, retornará todos os clientes associados aquela empresa.
